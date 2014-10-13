@@ -58,7 +58,6 @@ gulp.task 'bump-commit', ->
     .pipe git.commit require('./package').version
 
 gulp.task 'release', ['bump-commit'], (done) ->
-  version = require('./package').version
   git.tag 'v' + require('./package').version, '', ->
     git.push 'origin', 'master', {args: ' --tags'}, ->
       done()
