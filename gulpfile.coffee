@@ -4,7 +4,6 @@ filter = require 'gulp-filter'
 git = require 'gulp-git'
 gulp = require 'gulp'
 rename = require 'gulp-rename'
-tagVersion = require 'gulp-tag-version'
 wrap = require 'gulp-wrap'
 yargs = require 'yargs'
 
@@ -49,10 +48,17 @@ gulp.task 'build-nodejs', ['compile-bower-dev'], ->
 
 gulp.task 'default', ['compile-bower-min', 'compile-bower-dev', 'build-nodejs']
 
-gulp.task 'bump', (done) ->
-  gulp.src ['./package.json', './bower.json']
+gulp.task 'bump-version', ->
+  gulp.src './*.json'
     .pipe bump type: args.version || 'patch'
     .pipe gulp.dest './'
-    .pipe git.commit 'bumps package version'
-    .pipe filter 'package.json'
-    .pipe tagVersion()
+
+gulp.task 'bump-commit', ->
+  gulp.src './*.json'
+    .pipe git.commit require('./package').version
+
+gulp.task 'release', ['bump-commit'], (done) ->
+  version = require('./package').version
+  git.tag 'v' + require('./package').version, '', ->
+    git.push 'origin', 'master', {args: ' --tags'}, ->
+      done()
