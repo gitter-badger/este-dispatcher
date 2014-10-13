@@ -59,8 +59,10 @@ gulp.task 'bump-commit', ['bump-version'], ->
 
 gulp.task 'bump', ['bump-commit'], (done) ->
   git.tag 'v' + require('./package').version, 'bump', (error) ->
-    console.log 'error'
+    console.log error if error
+
+gulp.task 'fok', (done) ->
+  git.push 'origin', 'master', {args: ' -tags'}, (error) ->
     console.log error
-    git.push 'origin', 'master', {args: ' --tags'}, (error) ->
-      console.log error
-      done()
+    done()
+  return
