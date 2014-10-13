@@ -2,22 +2,29 @@
 
 Facebook [Flux](https://github.com/facebook/flux) like dispatcher with [promises](https://promisesaplus.com/) support. Made with [Este.js](https://github.com/steida/este).
 
-#### Features
+## Features
 
-  - catch and handle all sync/async actions
-  - provide `onError` hook for errors reporting
-  - isomorphic, Bower and Node.js versions
-  - Bower for production has only 2.7 kB (gzipped)
+  - Promises moves dispatcher to next level. All app sync/async actions and errors can be orchestrated across all app layers.
+  - Report app errors via provided `onError` hook.
+  - It's isomorphic, choose Bower or Node.js version.
+  - Bower version for production is super small, only 2.7 kB (gzipped). Yes, [Closure Compiler](https://developers.google.com/closure/compiler/).
 
-## [Bower](http://bower.io/)
+## Install
 
-#### Install
+For [Bower](http://bower.io/).
 
 ```
-  bower install https://github.com/steida/este-dispatcher.git
+  bower install steida/este-dispatcher --save
 ```
 
-#### Usage
+For [Node.js](http://nodejs.org/).
+
+```
+  npm install este-dispatcher --save
+```
+npm install gulp-git --save
+
+## Usage
 
 ```html
   // Dev
@@ -26,7 +33,7 @@ Facebook [Flux](https://github.com/facebook/flux) like dispatcher with [promises
   <script src="bower_components/este-dispatcher/dispatcher.min.js"></script>
 ```
 
-## [Node.js](http://nodejs.org/)
+
 
 #### Install
 
