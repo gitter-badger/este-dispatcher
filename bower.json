@@ -1,6 +1,6 @@
 {
   "name": "este-dispatcher",
-  "version": "0.1.14",
+  "version": "0.1.15",
   "main": "dispatcher.js",
   "homepage": "https://github.com/steida/este-dispatcher",
   "authors": [
