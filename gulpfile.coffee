@@ -15,7 +15,6 @@ paths =
     '{src,tmp}/**/*.js'
     '!**/*_test.js'
   ]
-  dist: 'dist'
   compiler: 'bower_components/closure-compiler/compiler.jar'
 
 gulp.task 'coffee', ->
@@ -32,7 +31,7 @@ gulp.task 'compile-debug', ['deps'], ->
 
 compile = (fileName, production) ->
   este.production = production
-  este.compile paths.js, paths.dist,
+  este.compile paths.js, '.',
     fileName: fileName
     compilerPath: paths.compiler
     compilerFlags: closure_entry_point: ['main']

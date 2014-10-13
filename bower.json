@@ -1,6 +1,7 @@
 {
   "name": "este-dispatcher",
   "version": "0.1.0",
+  "main": "dispatcher.js",
   "homepage": "https://github.com/steida/este-dispatcher",
   "authors": [
     "Daniel Steigerwald <daniel@steigerwald.cz>"
