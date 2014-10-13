@@ -17,7 +17,8 @@
   ],
   "license": "MIT",
   "ignore": [
-    "**/.*"
+    "demo",
+    "src"
   ],
   "devDependencies": {
     "este-library": "https://github.com/steida/este-library.git#~7.3.0"
