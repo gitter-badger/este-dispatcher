@@ -539,4 +539,4 @@ $este$Dispatcher$$.prototype.onError = $este$Dispatcher$$.prototype.$onError$;
 $este$Dispatcher$$.prototype.dispatch = $este$Dispatcher$$.prototype.$dispatch$;
 $este$Dispatcher$$.prototype.waitFor = $este$Dispatcher$$.prototype.$waitFor$;
 })();
-module.exports = este.Dispatcher;
+;module.exports = este.Dispatcher;

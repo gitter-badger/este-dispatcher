@@ -43,7 +43,7 @@ gulp.task 'compile-bower-dev', ['deps'], ->
 
 gulp.task 'build-nodejs', ['compile-bower-dev'], ->
   gulp.src 'dispatcher.js', base: '.'
-    .pipe wrap '<%= contents %>; module.exports = este.Dispatcher;'
+    .pipe wrap '<%= contents %>;module.exports = este.Dispatcher;'
     .pipe rename 'index.js'
     .pipe gulp.dest '.'
 
