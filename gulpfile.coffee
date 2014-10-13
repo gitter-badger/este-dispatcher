@@ -1,9 +1,14 @@
 GulpEste = require 'gulp-este'
+bump = require 'gulp-bump'
+filter = require 'gulp-filter'
+git = require 'gulp-git'
 gulp = require 'gulp'
 rename = require 'gulp-rename'
+tagVersion = require 'gulp-tag-version'
 wrap = require 'gulp-wrap'
 yargs = require 'yargs'
 
+args = yargs.argv
 este = new GulpEste __dirname, true, '../../../..'
 
 paths =
@@ -38,11 +43,16 @@ gulp.task 'compile-bower-dev', ['deps'], ->
 
 gulp.task 'build-nodejs', ['compile-bower-dev'], ->
   gulp.src 'dispatcher.js', base: '.'
-    .pipe wrap '<%= contents %>module.exports = este.Dispatcher;'
+    .pipe wrap '<%= contents %>; module.exports = este.Dispatcher;'
     .pipe rename 'index.js'
     .pipe gulp.dest '.'
 
 gulp.task 'default', ['compile-bower-min', 'compile-bower-dev', 'build-nodejs']
 
 gulp.task 'bump', (done) ->
-  este.bump './*.json', yargs, done
+  gulp.src ['./package.json', './bower.json']
+    .pipe bump type: args.version || 'patch'
+    .pipe gulp.dest './'
+    .pipe git.commit 'bumps package version'
+    .pipe filter 'package.json'
+    .pipe tagVersion()
