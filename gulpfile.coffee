@@ -51,7 +51,7 @@ gulp.task 'build', ['compile-bower-min', 'compile-bower-dev', 'build-nodejs']
 gulp.task 'default', ['build']
 
 # TODO: Make task for gulp-este.
-gulp.task 'bump-version', ['build'] ->
+gulp.task 'bump-version', ['build'], ->
   gulp.src './*.json'
     .pipe bump type: args.version || 'patch'
     .pipe gulp.dest './'
