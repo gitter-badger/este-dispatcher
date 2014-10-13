@@ -47,9 +47,11 @@ gulp.task 'build-nodejs', ['compile-bower-dev'], ->
     .pipe rename 'index.js'
     .pipe gulp.dest '.'
 
-gulp.task 'default', ['compile-bower-min', 'compile-bower-dev', 'build-nodejs']
+gulp.task 'build', ['compile-bower-min', 'compile-bower-dev', 'build-nodejs']
+gulp.task 'default', ['build']
 
-gulp.task 'bump-version', ->
+# TODO: Make task for gulp-este.
+gulp.task 'bump-version', ['build'] ->
   gulp.src './*.json'
     .pipe bump type: args.version || 'patch'
     .pipe gulp.dest './'
@@ -60,8 +62,16 @@ gulp.task 'bump-commit', ['bump-version'], ->
 
 gulp.task 'bump', ['bump-commit'], (done) ->
   git.tag 'v' + require('./package').version, 'bump', (error) ->
-    console.log error if error
+    if error
+      console.log error
+      return
     # For some reason git.push does not work.
     exec 'git push origin master --tags', (error) ->
-      console.log error if error
-      done()
+      if error
+        console.log error
+        return
+      exec 'npm publish', (error) ->
+        if error
+          console.log error
+          return
+        done()
