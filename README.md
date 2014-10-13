@@ -43,3 +43,11 @@ Facebook [Flux](https://github.com/facebook/flux) like dispatcher with [promises
 ## API
 
 Check [tests](https://github.com/steida/este-library/blob/master/este/dispatcher/dispatcher_test.coffee) or [source](https://github.com/steida/este-library/blob/master/este/dispatcher/dispatcher.coffee).
+
+## Build
+
+```
+  npm install
+  bower install
+  gulp
+```
