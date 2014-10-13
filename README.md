@@ -6,7 +6,7 @@ Facebook [Flux](https://github.com/facebook/flux) like dispatcher with [promises
 
   - Promises moves dispatcher to the next level. All app sync/async actions and errors can be orchestrated across all app layers easily.
   - App errors can be reported via provided `onError` hook.
-  - It's isomorphic, Bower and Node.js included.
+  - Isomorphic, Bower and Node.js versions included.
   - Bower version for production is super small, only 2.7 kB (gzipped). Yes, [Closure Compiler](https://developers.google.com/closure/compiler/).
 
 ## Install
