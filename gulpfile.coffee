@@ -57,7 +57,10 @@ gulp.task 'bump-commit', ['bump-version'], ->
   gulp.src './*.json'
     .pipe git.commit require('./package').version
 
-gulp.task 'release', ['bump-commit'], (done) ->
-  git.tag 'v' + require('./package').version, '', ->
-    git.push 'origin', 'master', {args: ' --tags'}, ->
+gulp.task 'bump', ['bump-commit'], (done) ->
+  git.tag 'v' + require('./package').version, 'bump', (error) ->
+    console.log 'error'
+    console.log error
+    git.push 'origin', 'master', {args: ' --tags'}, (error) ->
+      console.log error
       done()
