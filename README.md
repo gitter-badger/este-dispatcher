@@ -11,13 +11,13 @@ Facebook [Flux](https://github.com/facebook/flux) like dispatcher with [promises
 
 ## [Bower](http://bower.io/)
 
-### Install
+#### Install
 
 ```
   bower install https://github.com/steida/este-dispatcher.git
 ```
 
-### Usage
+#### Usage
 
 ```
   // Dev
@@ -28,13 +28,13 @@ Facebook [Flux](https://github.com/facebook/flux) like dispatcher with [promises
 
 ## [Node.js](http://nodejs.org/)
 
-### Install
+#### Install
 
 ```
   npm install este-dispatcher
 ```
 
-### Usage
+#### Usage
 
 ```
   var Dispatcher = require('este-dispatcher');
