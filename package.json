@@ -1,6 +1,6 @@
 {
   "name": "este-dispatcher",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Flux like dispatcher with promises.",
   "main": "index.js",
   "scripts": {
