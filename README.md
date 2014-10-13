@@ -19,7 +19,7 @@ Facebook [Flux](https://github.com/facebook/flux) like dispatcher with [promises
 
 #### Usage
 
-```
+```html
   // Dev
   <script src="bower_components/este-dispatcher/dispatcher.js"></script>
   // Production
@@ -36,13 +36,15 @@ Facebook [Flux](https://github.com/facebook/flux) like dispatcher with [promises
 
 #### Usage
 
-```
+```js
   var Dispatcher = require('este-dispatcher');
 ```
 
 ## API
 
 Check [tests](https://github.com/steida/este-library/blob/master/este/dispatcher/dispatcher_test.coffee) or [source](https://github.com/steida/este-library/blob/master/este/dispatcher/dispatcher.coffee).
+
+
 
 ## Build
 
