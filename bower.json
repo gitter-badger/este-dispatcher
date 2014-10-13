@@ -1,0 +1,26 @@
+{
+  "name": "este-dispatcher",
+  "version": "0.1.0",
+  "homepage": "https://github.com/steida/este-dispatcher",
+  "authors": [
+    "Daniel Steigerwald <daniel@steigerwald.cz>"
+  ],
+  "description": "Flux like dispatcher with promises.",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "flux",
+    "dispatcher",
+    "promises"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "demo",
+    "src"
+  ],
+  "devDependencies": {
+    "este-library": "https://github.com/steida/este-library.git#~7.3.0"
+  }
+}

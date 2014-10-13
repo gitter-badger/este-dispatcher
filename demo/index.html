@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>este.Dispatcher demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <h1>este.Dispatcher</h1>
+    <p>
+      Facebook <a href="https://github.com/facebook/flux">Flux</a> like
+      dispatcher with promises.
+    </p>
+    <ul>
+      <li>handle sync/async actions</li>
+      <li>registered callback can throw error or return promise</li>
+      <li>with onError we can catch and handle all app sync/async errors</li>
+      <li>debug version checks arguments and detects circular dependencies</li>
+    </ul>
+    <p>
+      Check source code and <a href="https://github.com/steida/este-library/blob/master/este/dispatcher/dispatcher_test.coffee">tests</a>
+      to see how este.Dispatcher works.
+    </p>
+    <script src="../dist/dispatcher.js"></script>
+    <script>
+      // This is just a quick demo for compiled out version.
+      var dispatcher = new este.Dispatcher
+      var id0 = dispatcher.register(function(action, payload) {
+        console.log('Callback 0 called.');
+        dispatcher.waitFor([id1])
+          .then(function() {
+            console.log('Callback 0 handled.');
+          });
+      });
+      var id1 = dispatcher.register(function(action, payload) {
+        console.log('Callback 1 called.');
+        console.log(action, payload);
+      });
+      dispatcher.dispatch("save-user", {foo: 123})
+        .then(function() {
+          console.log('User saved.');
+        });
+
+    </script>
+  </body>
+</html>
