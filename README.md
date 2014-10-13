@@ -4,9 +4,9 @@ Facebook [Flux](https://github.com/facebook/flux) like dispatcher with [promises
 
 ## Features
 
-  - Promises moves dispatcher to next level. All app sync/async actions and errors can be orchestrated across all app layers.
-  - Report app errors via provided `onError` hook.
-  - It's isomorphic, choose Bower or Node.js version.
+  - Promises moves dispatcher to the next level. All app sync/async actions and errors can be orchestrated across all app layers easily.
+  - App errors can be reported via provided `onError` hook.
+  - It's isomorphic, Bower and Node.js included.
   - Bower version for production is super small, only 2.7 kB (gzipped). Yes, [Closure Compiler](https://developers.google.com/closure/compiler/).
 
 ## Install
@@ -22,9 +22,10 @@ For [Node.js](http://nodejs.org/).
 ```
   npm install este-dispatcher --save
 ```
-npm install gulp-git --save
 
 ## Usage
+
+For [Bower](http://bower.io/).
 
 ```html
   // Dev
@@ -33,15 +34,7 @@ npm install gulp-git --save
   <script src="bower_components/este-dispatcher/dispatcher.min.js"></script>
 ```
 
-
-
-#### Install
-
-```
-  npm install este-dispatcher
-```
-
-#### Usage
+For [Node.js](http://nodejs.org/).
 
 ```js
   var Dispatcher = require('este-dispatcher');
@@ -51,12 +44,54 @@ npm install gulp-git --save
 
 Check [tests](https://github.com/steida/este-library/blob/master/este/dispatcher/dispatcher_test.coffee) or [source](https://github.com/steida/este-library/blob/master/este/dispatcher/dispatcher.coffee).
 
+#### register
 
-
-## Build
-
+```js
+/**
+  @param {Function} callback
+  @return {number} ID of registered callback.
+*/
+register(callback)
 ```
-  npm install
-  bower install
-  gulp
+
+#### unregister
+
+```js
+/**
+  @param {number} id ID of registered callback.
+*/
+unregister(id)
 ```
+
+#### onError
+
+```js
+/**
+  For error reporting.
+  @param {string} action
+  @param {*} reason
+*/
+onError(action, reason) 
+```
+
+#### dispatch
+
+```js
+/**
+  @param {string} action
+  @param {Object=} payload Data for action.
+  @return {!goog.Promise}
+*/
+dispatch(action, payload)
+```
+
+#### waitFor
+
+```js
+/**
+  @param {Array.<number>} ids Register callbacks IDs.
+  @return {!goog.Promise}
+*/
+waitFor(ids)
+```
+
