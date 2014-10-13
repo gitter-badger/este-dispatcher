@@ -1,5 +1,6 @@
 GulpEste = require 'gulp-este'
 bump = require 'gulp-bump'
+exec = require('child_process').exec
 filter = require 'gulp-filter'
 git = require 'gulp-git'
 gulp = require 'gulp'
@@ -60,9 +61,7 @@ gulp.task 'bump-commit', ['bump-version'], ->
 gulp.task 'bump', ['bump-commit'], (done) ->
   git.tag 'v' + require('./package').version, 'bump', (error) ->
     console.log error if error
-
-gulp.task 'fok', (done) ->
-  git.push 'origin', 'master', {args: ' -tags'}, (error) ->
-    console.log error
-    done()
-  return
+    # For some reason git.push does not work.
+    exec 'git push origin master --tags', (error) ->
+      console.log error if error
+      done()
