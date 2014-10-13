@@ -89,7 +89,7 @@ dispatch(action, payload)
 
 ```js
 /**
-  @param {Array.<number>} ids Register callbacks IDs.
+  @param {Array.<number>} ids Callbacks IDs.
   @return {!goog.Promise}
 */
 waitFor(ids)
