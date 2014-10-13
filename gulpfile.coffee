@@ -53,7 +53,7 @@ gulp.task 'bump-version', ->
     .pipe bump type: args.version || 'patch'
     .pipe gulp.dest './'
 
-gulp.task 'bump-commit', ->
+gulp.task 'bump-commit', ['bump-version'], ->
   gulp.src './*.json'
     .pipe git.commit require('./package').version
 
