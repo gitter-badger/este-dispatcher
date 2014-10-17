@@ -491,8 +491,7 @@ function $JSCompiler_StaticMethods_runCallbacks_$$($JSCompiler_StaticMethods_run
       })).then(function() {
         return $_this$$1$$.$resolves_$[$id$$6$$]($payload$$1$$);
       }), function($reason$$8$$) {
-        $_this$$1$$.$errorReporter$ && $_this$$1$$.$errorReporter$.$report$($reason$$8$$, $action$$2$$);
-        return $_this$$1$$.$rejects_$[$id$$6$$]($reason$$8$$);
+        $_this$$1$$.$rejects_$[$id$$6$$]($reason$$8$$);
       });
     };
   }($JSCompiler_StaticMethods_runCallbacks_$self$$));
