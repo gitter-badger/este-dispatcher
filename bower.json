@@ -22,6 +22,6 @@
     "src"
   ],
   "devDependencies": {
-    "este-library": "https://github.com/steida/este-library.git#~7.3.0"
+    "este-library": "https://github.com/steida/este-library.git#^7.3.0"
   }
 }
