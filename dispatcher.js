@@ -462,7 +462,7 @@ function $JSCompiler_StaticMethods_assertCallbackId_$$($JSCompiler_StaticMethods
 $JSCompiler_prototypeAlias$$.$dispatch$ = function $$JSCompiler_prototypeAlias$$$$dispatch$$($action$$1$$, $payload$$) {
   $goog$asserts$assert$$(!this.$isDispatching_$, "Cannot dispatch in the middle of a dispatch.");
   $goog$asserts$assertString$$($action$$1$$);
-  $goog$asserts$assertObject$$($payload$$);
+  $payload$$ && $goog$asserts$assertObject$$($payload$$);
   this.$isDispatching_$ = !0;
   this.$resolves_$ = [];
   this.$rejects_$ = [];
